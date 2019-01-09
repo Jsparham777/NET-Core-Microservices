@@ -24,7 +24,8 @@ services:
     #- ./data/db:/data/db #This wont work in Windows and will cause a wiredtiger fatal assertion. Mongo will not start!
 
  api:
-  image: actio.api
+  #image: actio.api - For development
+  image: jsparham777/actio.api
   restart: on-failure
   links:
     - rabbitmq
@@ -35,7 +36,8 @@ services:
     - rabbitmq
    
  activities-service:
-  image: actio.services.activities
+  #image: actio.services.activities - For development
+  image: jsparham777/actio.services.activities
   restart: on-failure
   links:
     - rabbitmq
@@ -46,7 +48,8 @@ services:
     - rabbitmq
 
  identity-service:
-  image: actio.services.identity
+  #image: actio.services.identity - For development
+  image: jsparham777/actio.services.identity
   restart: on-failure
   links:
     - rabbitmq
