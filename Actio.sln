@@ -25,6 +25,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{BAD7
 		Dockerfile-activities = Dockerfile-activities
 		Dockerfile-api = Dockerfile-api
 		Dockerfile-identity = Dockerfile-identity
+		nginx.config = nginx.config
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Powershell", "Powershell", "{32F92330-98F9-48D5-9A67-C9A052864114}"
