@@ -11,9 +11,10 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
-  imageNameAPI: 'jsparham777/actio.api:$(Build.BuildId)'
-  imageNameServiceIdentity: 'jsparham777/actio.services.identity:$(Build.BuildId)'
-  imageNameServiceActivities: 'jsparham777/actio.services.activities:$(Build.BuildId)'
+  dockerId: 'jsparham777'
+  imageNameAPI: 'actio.api:$(Build.BuildId)'
+  imageNameServiceIdentity: 'actio.services.identity:$(Build.BuildId)'
+  imageNameServiceActivities: 'actio.services.activities:$(Build.BuildId)'
 
 steps:
 - script: |
