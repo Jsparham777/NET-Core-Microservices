@@ -20,7 +20,7 @@ steps:
 - script: |
     dotnet build --configuration $(buildConfiguration)
     displayName: 'dotnet build $(buildConfiguration)'
-    #dotnet test Actio.API.Tests --configuration $(buildConfiguration) --logger trx
+    
     
     dotnet publish --configuration $(buildConfiguration) --output out
     docker build -f Dockerfile -t $(dockerId)/$(imageNameAPI) .
@@ -28,7 +28,7 @@ steps:
     docker push $(dockerId)/$(imageNameAPI)
     
     
-    
+    #dotnet test Actio.API.Tests --configuration $(buildConfiguration) --logger trx
     #dotnet test Actio.Services.Identity.Tests --configuration $(buildConfiguration) --logger trx
     #dotnet test Actio.Services.Activities.Tests --configuration $(buildConfiguration) --logger trx
   env:
