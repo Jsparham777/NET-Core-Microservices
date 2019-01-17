@@ -20,21 +20,25 @@ steps:
 - script: |
     dotnet build --configuration $(buildConfiguration)
 
-    dotnet test Actio.API.Tests --configuration $(buildConfiguration) --logger trx
-    
+    dotnet test --logger trx Actio.API.Tests --configuration $(buildConfiguration)
+    dotnet test --logger trx Actio.Services.Identity.Tests --configuration $(buildConfiguration)
+    dotnet test --logger trx Actio.Services.Activities.Tests --configuration $(buildConfiguration)
+
     dotnet publish --configuration $(buildConfiguration) --output out
+    
     docker build -f Dockerfile-api -t $(dockerId)/$(imageNameAPI) .
     docker build -f Dockerfile-api -t $(dockerId)/$(imageNameServiceIdentity) .
     docker build -f Dockerfile-api -t $(dockerId)/$(imageNameServiceActivities) .
+
     docker login -u $(dockerId) -p $pswd
+    
     docker push $(dockerId)/$(imageNameAPI)
     docker push $(dockerId)/$(imageNameServiceIdentity)
     docker push $(dockerId)/$(imageNameServiceActivities)
     
     
     #displayName: 'dotnet build $(buildConfiguration)'
-    #dotnet test Actio.Services.Identity.Tests --configuration $(buildConfiguration) --logger trx
-    #dotnet test Actio.Services.Activities.Tests --configuration $(buildConfiguration) --logger trx
+    
   env:
     pswd: $(dockerPassword)
 
