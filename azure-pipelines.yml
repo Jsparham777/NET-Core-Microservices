@@ -20,9 +20,9 @@ steps:
 - script: |
     dotnet build --configuration $(buildConfiguration)
 
-    dotnet test --logger trx Actio.API.Tests --configuration $(buildConfiguration)
-    dotnet test --logger trx Actio.Services.Identity.Tests --configuration $(buildConfiguration)
-    dotnet test --logger trx Actio.Services.Activities.Tests --configuration $(buildConfiguration)
+    dotnet test --logger trx src/Actio.API.Tests --configuration $(buildConfiguration)
+    dotnet test --logger trx src/Actio.Services.Identity.Tests --configuration $(buildConfiguration)
+    dotnet test --logger trx src/Actio.Services.Activities.Tests --configuration $(buildConfiguration)
 
     dotnet publish --configuration $(buildConfiguration) --output out
     
