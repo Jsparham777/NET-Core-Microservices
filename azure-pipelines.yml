@@ -19,7 +19,7 @@ variables:
 steps:
 - script: |
     dotnet build --configuration $(buildConfiguration)
-
+    displayName: 'dotnet build $(buildConfiguration)'
     dotnet test --logger trx src/Actio.API.Tests --configuration $(buildConfiguration)
     dotnet test --logger trx src/Actio.Services.Identity.Tests --configuration $(buildConfiguration)
     dotnet test --logger trx src/Actio.Services.Activities.Tests --configuration $(buildConfiguration)
@@ -37,7 +37,7 @@ steps:
     docker push $(dockerId)/$(imageNameServiceActivities)
     
     
-    #displayName: 'dotnet build $(buildConfiguration)'
+    
     
   env:
     pswd: $(dockerPassword)
